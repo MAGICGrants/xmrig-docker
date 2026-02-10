@@ -17,8 +17,9 @@ RUN wget https://github.com/xmrig/xmrig/releases/download/v${VERSION}/xmrig-${VE
     echo "${SHA256SUM} xmrig-${VERSION}-linux-static-x64.tar.gz" | sha256sum -c && \
     tar -xzf xmrig-${VERSION}-linux-static-x64.tar.gz && \
     rm xmrig-${VERSION}-linux-static-x64.tar.gz && \
-    mv xmrig-${VERSION} xmrig
+    mv xmrig-${VERSION}/xmrig /usr/local/bin/xmrig && \
+    mkdir -p $HOME/.config && \
+    mv  xmrig-${VERSION}/config.json $HOME/.config/xmrig.json && \
+    rm -rf xmrig-${VERSION}
 
-WORKDIR /root/xmrig
-
-ENTRYPOINT ["./xmrig"]
+ENTRYPOINT ["xmrig"]
