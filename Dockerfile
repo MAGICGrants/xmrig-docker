@@ -12,7 +12,7 @@ LABEL maintainer="artur@magicgrants.org" \
 USER root
 WORKDIR /root
 
-RUN apk add wget
+RUN apk add wget jq
 RUN wget https://github.com/xmrig/xmrig/releases/download/v${VERSION}/xmrig-${VERSION}-linux-static-x64.tar.gz && \
     echo "${SHA256SUM} xmrig-${VERSION}-linux-static-x64.tar.gz" | sha256sum -c && \
     tar -xzf xmrig-${VERSION}-linux-static-x64.tar.gz && \
