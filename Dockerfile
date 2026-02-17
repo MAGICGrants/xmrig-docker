@@ -19,7 +19,8 @@ RUN wget https://github.com/xmrig/xmrig/releases/download/v${VERSION}/xmrig-${VE
     rm xmrig-${VERSION}-linux-static-x64.tar.gz && \
     mv xmrig-${VERSION}/xmrig /usr/local/bin/xmrig && \
     mkdir -p $HOME/.config && \
-    mv  xmrig-${VERSION}/config.json $HOME/.config/xmrig.json && \
+    cp xmrig-${VERSION}/config.json $HOME/.config/xmrig.json && \
+    cp xmrig-${VERSION}/config.json $HOME/xmrig-config.json && \
     rm -rf xmrig-${VERSION}
 
 ENTRYPOINT ["xmrig"]
